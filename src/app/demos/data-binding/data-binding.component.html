@@ -1,0 +1,33 @@
+<div class="container main-container">
+<h3 class="text-danger">Interpolation</h3>
+
+    <!-- <p class="lead">O número de cliques até o momento é: {{contadorClique}}</p>
+     -->
+     <p [ngClass]="{
+        'text-success':contadorClique <= 4,
+        'fw-bold text-warning':contadorClique >= 5,
+        'fw-bolder text-danger':contadorClique >= 9
+      }">O número de cliques é: {{ contadorClique }}</p>
+</div>
+<div class="container mb-5">
+     <h3 class="text-danger">Property Binding</h3>
+     <button class="btn btn-secondary text-light" [disabled]="contadorClique >=10">Info</button>
+
+     <img [src]="urlImagem" height="50px" width="50px">
+</div>
+
+<div class="container mb-5">
+        <h3 class="text-danger">Event Binding</h3>
+        <button class="btn btn-warning ms" (click)="adicionarClique()">Contador</button>
+
+        <button class="btn btn-danger ms-2" (click)="zerarContador()" [disabled]='contadorClique < 10'>Zerar Contador</button>
+</div>
+<div class="container">
+        <h3 class="text-danger">Two-Way Binding</h3>
+
+        <div class="input-group input-group-sm">
+            <span class="input-group-text" id="addon-wrapping">@</span>
+            <input type="text" class="form-control" aria-describedby="addon-wrapping" [(ngModel)]="nome" placeholder="Digite seu nome">
+          </div>
+          <label [ngClass]="nome">Seu nome é: {{ nome }}</label>
+</div>
